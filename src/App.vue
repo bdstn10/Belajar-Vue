@@ -1,4 +1,5 @@
 <!-- Dibawah merupakan contoh penggunaan Options API pada logika component Vue -->
+<!-- Apabila ingin menggunakan Composition API maka tag script harus diberi penanda 'setup' dan apabila ingin menggunakan yang Options API, penanda 'setup' tersebut harus dihilangkan -->
 <script>
 export default {
   // Properties returned from data() become reactive state 
