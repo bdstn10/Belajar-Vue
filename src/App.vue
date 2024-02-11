@@ -1,30 +1,27 @@
+<!-- Dibawah merupakan contoh penggunaan Composition API pada logika component Vue -->
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref,onMounted } from 'vue';
+
+// reactive state
+const count = ref(0)
+
+// function that mutate state and trigger update
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.log(`The initial value of 'count' state is: ${count.value}`)
+})
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <button @click="increment">Count is : {{ count }}</button>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  button {
+    font-weight: bold;
+  }
 </style>
